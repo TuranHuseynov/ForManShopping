@@ -1,0 +1,106 @@
+#kampanya{
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(ClearSans-Bold.otf);
+}
+
+    
+	background: url(../img/slider-bg-1.jpg) center center no-repeat;
+	// box-sizing:border-box;
+	padding: 25px;
+	background-attachment: fixed;
+    font-family: myFirstFont;
+	
+	h3{
+	    font-size: 35px;
+    color: #83a4c5;
+    margin-bottom: 38px;
+    margin-top: 42px;
+    text-shadow: 1px 2px 2px #3b3737;
+    border: 1px solid darkgrey;
+    text-align: center;
+    padding: 9px;
+    font-family: myFirstFont;
+    width: 278px;
+    border-radius: 16px;
+    box-shadow: 2px 1px 22px snow;}
+	h2{
+		font-size: 47px;
+    color: snow;
+    letter-spacing: 2px;
+    font-family: myFirstFont;
+    margin-top: 4px;
+    margin-bottom: 36px;
+	}
+	h4{
+		    font-size: 25px;
+    letter-spacing: 2px;
+        margin-top: 60px;
+    color: snow;
+    font-family: 'myFirstFont';
+	}
+	button{
+		float: right;
+		    padding: 6px 15px;
+    font-size: 23px;
+    margin-top: 30px;
+    margin-bottom: 61px;
+    font-family: myFirstFont;
+    background: snow;
+    color: black;
+    border: 1px solid snow;
+    border-radius: 22px;
+    box-shadow: 2px 1px 30px snow;
+    transition: .7s;
+	}
+	button:hover{
+		background: none;
+		color: snow;
+	}
+	p{
+		    text-align: center;
+    color: #cdc0c0;
+    font-size: 20px;
+    font-family: myFirstFont;
+	}
+}
+
+
+@media (max-width: 375px){
+
+ #kampanya h2{
+        font-size: 13px;
+    color: snow;
+  
+    font-family: myFirstFont;
+    margin-top: 4px;
+    margin-bottom: 2px; 
+ }
+
+ #kampanya h4{
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 11px;
+    color: snow;
+    font-family: 'myFirstFont';
+ }
+ #kampanya p{
+    font-size: 13px;
+ }
+    #kampanya button{
+        float: right;
+    padding: 3px 11px;
+    font-size: 10px;
+    margin-top: 1px;
+    margin-bottom: 0px;
+    font-family: myFirstFont;
+    background: snow;
+    color: black;
+    border: 1px solid snow;
+    border-radius: 22px;
+    box-shadow: 2px 1px 30px snow;
+    transition: .7s;
+    }
+
+}

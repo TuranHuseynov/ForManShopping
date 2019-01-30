@@ -1,0 +1,58 @@
+﻿@model IEnumerable<YeniShoppingProject.Models.Photo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Shopi/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.photo_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo_type_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.color_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mallar.product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotoType.photo_type_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo_type_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.color_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mallar.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhotoType.photo_type_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.photo_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.photo_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.photo_id })
+        </td>
+    </tr>
+}
+
+</table>

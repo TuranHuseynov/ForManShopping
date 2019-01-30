@@ -1,0 +1,35 @@
+﻿@model YeniShoppingProject.Viewmodel.MyModel
+@{
+    ViewBag.Title = "Sebetler";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1 class="text-center">Səbətim</h1>
+<section id="sebetim">
+    <div class="container">
+        <!-- <div class="row bosh">
+            <div class="col-md-12 text-center">
+                <h2>Səbətim</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio expedita repellendus, officiis magnam iste sunt, maiores, quibusdam dignissimos laborum deserunt tempore saepe veritatis quo error blanditiis aperiam recusandae illo reprehenderit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quidem, aliquam quisquam vitae eveniet explicabo vero recusandae iste aliquid est quo accusamus necessitatibus optio eaque ipsa harum laudantium nihil iure.</p>
+            </div>
+        </div> -->
+        <div class="clearfix"></div>
+        @foreach (var item in Model._boxesss)
+        {
+            <div class="row dolu">
+                <div class="col-md-3">
+                    <img src="~/Yuklenen/@item.Photo.photo_name" style="width: 85%;">
+                </div>
+                <div class="col-md-7">
+                    <h2>@item.Photo.Mallar.Brand.brand_name</h2>
+                    <p>@item.Photo.Mallar.product_info</p>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info"><a href="~/Home/BLogMehsul/@item.Photo.photo_id">Sifaris et</a></button>
+                </div>
+            </div>
+        }
+
+        <hr>
+    </div>
+</section>

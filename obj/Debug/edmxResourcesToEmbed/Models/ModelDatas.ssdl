@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingNewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="brand_id" />
+    </Key>
+    <Property Name="brand_id" Type="int" Nullable="false" />
+    <Property Name="brand_name" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" Nullable="false" />
+    <Property Name="category_name" Type="nvarchar" MaxLength="300" />
+    <Property Name="category_icon" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="color_id" />
+    </Key>
+    <Property Name="color_id" Type="int" Nullable="false" />
+    <Property Name="color_name" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_photo_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Mallar">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar" MaxLength="400" />
+    <Property Name="product_info" Type="nvarchar" MaxLength="1300" />
+    <Property Name="product_price" Type="nvarchar" MaxLength="11" />
+    <Property Name="product_count" Type="nvarchar" MaxLength="11" />
+    <Property Name="product_brand_id" Type="int" />
+    <Property Name="product_category_id" Type="int" />
+  </EntityType>
+  <EntityType Name="MessageWant">
+    <Key>
+      <PropertyRef Name="wantmessage_id" />
+    </Key>
+    <Property Name="wantmessage_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wantmessage_user_id" Type="int" />
+    <Property Name="wantmessage_text" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_status_id" Type="int" />
+    <Property Name="order_user_id" Type="int" />
+    <Property Name="order_product" Type="nvarchar" MaxLength="600" />
+    <Property Name="order_adress" Type="nvarchar" MaxLength="800" />
+    <Property Name="order_count" Type="nvarchar" MaxLength="11" />
+    <Property Name="order_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="orderstatus_id" />
+    </Key>
+    <Property Name="orderstatus_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderstatus_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="OthBxo">
+    <Key>
+      <PropertyRef Name="othbox_id" />
+    </Key>
+    <Property Name="othbox_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="otbox_user_id" Type="int" />
+    <Property Name="otbox_photo_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="photo_id" />
+    </Key>
+    <Property Name="photo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="photo_name" Type="nvarchar" MaxLength="300" />
+    <Property Name="photo_product_id" Type="int" />
+    <Property Name="photo_color_id" Type="int" />
+    <Property Name="photo_type_id" Type="int" />
+  </EntityType>
+  <EntityType Name="PhotoType">
+    <Key>
+      <PropertyRef Name="photo_type_id" />
+    </Key>
+    <Property Name="photo_type_id" Type="int" Nullable="false" />
+    <Property Name="photo_type_name" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_fullname" Type="nvarchar" MaxLength="250" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_phone" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <Association Name="FK_Company_Photos">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="photo_id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="company_photo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mallar_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="brand_id" />
+      </Principal>
+      <Dependent Role="Mallar">
+        <PropertyRef Name="product_brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mallar_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="Mallar">
+        <PropertyRef Name="product_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="orderstatus_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="order_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="order_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OthBxo_Photos">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+    <End Role="OthBxo" Type="Self.OthBxo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="photo_id" />
+      </Principal>
+      <Dependent Role="OthBxo">
+        <PropertyRef Name="otbox_photo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OthBxo_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="OthBxo" Type="Self.OthBxo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="OthBxo">
+        <PropertyRef Name="otbox_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="color_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_color_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_Mallar">
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mallar">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_PhotoType">
+    <End Role="PhotoType" Type="Self.PhotoType" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhotoType">
+        <PropertyRef Name="photo_type_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShoppingNewModelStoreContainer">
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color" EntityType="Self.Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mallar" EntityType="Self.Mallar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageWant" EntityType="Self.MessageWant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OthBxo" EntityType="Self.OthBxo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotoType" EntityType="Self.PhotoType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Company_Photos" Association="Self.FK_Company_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mallar_Brand" Association="Self.FK_Mallar_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Mallar" EntitySet="Mallar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mallar_Category" Association="Self.FK_Mallar_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Mallar" EntitySet="Mallar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OthBxo_Photos" Association="Self.FK_OthBxo_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="OthBxo" EntitySet="OthBxo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OthBxo_User" Association="Self.FK_OthBxo_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="OthBxo" EntitySet="OthBxo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_Color" Association="Self.FK_Photos_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_Mallar" Association="Self.FK_Photos_Mallar">
+      <End Role="Mallar" EntitySet="Mallar" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_PhotoType" Association="Self.FK_Photos_PhotoType">
+      <End Role="PhotoType" EntitySet="PhotoType" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

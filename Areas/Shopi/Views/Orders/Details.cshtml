@@ -1,0 +1,67 @@
+﻿@model YeniShoppingProject.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Shopi/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order_adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order_count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderStatu.orderstatus_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatu.orderstatus_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.user_fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.user_fullname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.order_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

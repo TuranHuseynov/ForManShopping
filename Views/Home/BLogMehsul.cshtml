@@ -1,0 +1,101 @@
+﻿@model YeniShoppingProject.Viewmodel.MyModel
+@{
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLAyout.cshtml";
+    }
+}
+
+
+<section id="mehsulblog">
+    <div class="container">
+
+        @foreach (var item in Model._sekiller)
+        {
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="~/Yuklenen/@item.photo_name" style="width: 100%;">
+                </div>
+                <div class="col-md-7">
+                    <h2>@item.Mallar.Brand.brand_name</h2>
+                    <p style="font-size: 18px;">@item.Mallar.product_info</p>
+                    <div class="row reng">
+                        <div class="col-md-6 col-xs-6">
+                            @*<h3>Rəng</h3>
+                                <button> &Rscr;</button><button>&Rscr;</button><button>&Rscr;</button>*@
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <h3>Qiymət</h3>
+                            <h3>@item.Mallar.product_price Azn</h3>
+
+                        </div>
+                    </div>
+                    <div class="row butonlar">
+                        <div class="col-md-6 col-xs-6">
+                            <button class="btn btn-success" id="sifar">Sifariş et</button>
+                        </div>
+                        @using (Html.BeginForm("Sebetler", "Home"))
+                        {
+                            <div class="col-md-6 col-xs-6">
+                                <input type="hidden" name="mehsulid" style="display:none;" value="@item.photo_id" />
+                                @if (Session["id"] != null)
+                                {
+                                    <button type="submit" style="float:right;" class="btn btn-info">Səbətə at</button>
+                                }
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div id="gizliform" style="display: none;">
+                    <div class="container">
+                        <div class="col-md-12 col-xs-12">
+                            <form action="~/Home/Sebetim" method="post" enctype="multipart/form-data">
+                                <div class="md-form mb-5">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <label data-error="wrong" data-success="right" for="form3">Ad,Soyadınız</label>
+                                    <h2>@Session["ad"]</h2>
+                                    @*<input type="text" id="form3" class="form-control validate" name="user_ad_soyad" style="margin-bottom: 20px;" value="@Session["ad"]">*@
+                                </div>
+                                @*<div class="md-form mb-4">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        <label data-error="wrong" data-success="right" for="form2">Telefon</label>
+                                        <input type="text" name="zakazim_telefon" id="form2" class="form-control validate">
+                                    </div>*@
+                                <i class="fa fa-commenting" aria-hidden="true"></i>
+                                <label data-error="wrong" data-success="right" for="form3">Ünvan \ Qeyd</label>
+                                <input type="text" name="zakaz_adres" />
+                                <input type="text" name="zakaz_mehsulu" style="display:none" value="@item.photo_name" />
+                                @*<input type="text" name="zakaz_adres" placeholder=""/>*@
+                                @if (Session["id"] != null)
+                                {
+                                    <div class="text-center">
+                                        <button type="submit" style="margin: 20px;font-size: 19px;padding: 6px 27px;border: 1px solid #ccc;border-radius: 42px;background: #175f75;color: white;" onclick="return IsEmpty()">Təstiqlə</button>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="text-center">
+                                        <button type="submit" style="margin: 20px;font-size: 19px;padding: 6px 27px;border: 1px solid #ccc;border-radius: 42px;background: #175f75;color: white;"><a href="/Login/Index">Təstiqlə</a></button>
+                                    </div>
+                                }
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</section>
+

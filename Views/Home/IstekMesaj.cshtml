@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "IstekMesaj";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+}
+
+
+
+<section id="istekmesaj">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>
+                    Istek bölməsinə xoş gəldin Bəy. <br /> Bu bölmədə , almaq istədiyiniz,tapa bilmədiyiniz KİŞİÜÇÜN nə məhsul varsa, bizə yazıb göndərirsiniz.<br />
+                    Sorğunuza baxıldıqdan sonra , Məhsul tapıldıqda həm saytımızda görmüş olacaq, həm də bildiriş almış olacaqsınız. Bu səbəbdən bizi izləməyə davam edin..
+                </h1>
+                <form action="/Home/IstekMesaj" method="post">
+                    <h2>@Session["ad"] <br /> Səhifədə hansı məhsulu görmək istərdiniz ? </h2><br />
+                    <input type="text" name="istek_mesaj" /><br />
+                    <button type="submit">Göndər</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+

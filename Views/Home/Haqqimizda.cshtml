@@ -1,0 +1,29 @@
+﻿@model YeniShoppingProject.Viewmodel.MyModel
+@{
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+}
+
+<section id="haqqimizda" style="background:linear-gradient(180deg, #ffffff, 85%, #191717 107%);">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1 class="text-center">Haqqımızda</h1>
+                <p>Sayt Kişi üçün lazım olacaq hər bir bir vacib əşyaların onlayn satışını  həyata keçirmək üçün yaradılıb. Burada sizə lazım olacaq hər bir şeyi düşünərək ,həmin şeyləri yerləşdirdik.</p>
+                <p> Bundan əlavə hətta Sizin İstəklər üçün bölüm də yerləşdirdik Kİ, burada siz bu saytda satışını görmək istədiniyiniz məhsullar haqqında bizim SİZİN İSTƏKLƏR bölməsinə yazıb göndərəsiniz. Mümkün olduğu halda Həmin məhsulu tez bir zamanda saytda yerləşdiyini görə biləcəksiniz.</p>
+                <h3 class="text-center">Çatdırılma</h3>
+                <p>Saytda istədiyiniz məhsulu klikləyib sifariş formunu dolduraraq sifariş edə bilərsiniz. Sifariş etdiyiniz halda ZƏNG Mərkəzimiz tezliklə sizlə əlaqə saxlıyaraq Sifarişi istədiyiniz məkana çatdırılmasını təmin edəcək. ZƏNG Mərkəziylə danışıq zamanı sifariş etdiyiniz məhsul haqqında daha geniş məlumat da ala bilmə imkanınız yaranır.</p>
+                <p>Çatdırılma : <br />Ölkə daxili - Avtovağzallara <br /> Bakı Şəhəri içi - istənilən məkana çatdırılır </p>
+                <blockquote style="float:right;color:snow;">BİZİ İZLƏMƏDƏ QALIN</blockquote>
+            </div>
+        </div>
+    </div>
+</section>

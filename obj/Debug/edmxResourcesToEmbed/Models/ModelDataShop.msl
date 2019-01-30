@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShoppingNewModelStoreContainer" CdmEntityContainer="ShoppingNewEntities">
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="brand_id" ColumnName="brand_id" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_icon" ColumnName="category_icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Color">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="color_id" ColumnName="color_id" />
+          <ScalarProperty Name="color_name" ColumnName="color_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="company_photo_id" ColumnName="company_photo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mallars">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Mallar">
+        <MappingFragment StoreEntitySet="Mallar">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_info" ColumnName="product_info" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_count" ColumnName="product_count" />
+          <ScalarProperty Name="product_brand_id" ColumnName="product_brand_id" />
+          <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageWants">
+      <EntityTypeMapping TypeName="ShoppingNewModel.MessageWant">
+        <MappingFragment StoreEntitySet="MessageWant">
+          <ScalarProperty Name="wantmessage_id" ColumnName="wantmessage_id" />
+          <ScalarProperty Name="wantmessage_user_id" ColumnName="wantmessage_user_id" />
+          <ScalarProperty Name="wantmessage_text" ColumnName="wantmessage_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="order_status_id" ColumnName="order_status_id" />
+          <ScalarProperty Name="order_user_id" ColumnName="order_user_id" />
+          <ScalarProperty Name="order_product" ColumnName="order_product" />
+          <ScalarProperty Name="order_adress" ColumnName="order_adress" />
+          <ScalarProperty Name="order_count" ColumnName="order_count" />
+          <ScalarProperty Name="order_time" ColumnName="order_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="ShoppingNewModel.OrderStatu">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="orderstatus_id" ColumnName="orderstatus_id" />
+          <ScalarProperty Name="orderstatus_name" ColumnName="orderstatus_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="ShoppingNewModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+          <ScalarProperty Name="photo_name" ColumnName="photo_name" />
+          <ScalarProperty Name="photo_product_id" ColumnName="photo_product_id" />
+          <ScalarProperty Name="photo_color_id" ColumnName="photo_color_id" />
+          <ScalarProperty Name="photo_type_id" ColumnName="photo_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoTypes">
+      <EntityTypeMapping TypeName="ShoppingNewModel.PhotoType">
+        <MappingFragment StoreEntitySet="PhotoType">
+          <ScalarProperty Name="photo_type_id" ColumnName="photo_type_id" />
+          <ScalarProperty Name="photo_type_name" ColumnName="photo_type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ShoppingNewModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_fullname" ColumnName="user_fullname" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

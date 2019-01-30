@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShoppingNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="brand_id" />
+    </Key>
+    <Property Name="brand_id" Type="Int32" Nullable="false" />
+    <Property Name="brand_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Mallars" Relationship="Self.FK_Mallar_Brand" FromRole="Brand" ToRole="Mallar" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int32" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="category_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Mallars" Relationship="Self.FK_Mallar_Category" FromRole="Category" ToRole="Mallar" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="color_id" />
+    </Key>
+    <Property Name="color_id" Type="Int32" Nullable="false" />
+    <Property Name="color_name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Photos" Relationship="Self.FK_Photos_Color" FromRole="Color" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_photo_id" Type="Int32" />
+    <NavigationProperty Name="Photo" Relationship="Self.FK_Company_Photos" FromRole="Company" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="Mallar">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="product_info" Type="String" MaxLength="1300" FixedLength="false" Unicode="true" />
+    <Property Name="product_price" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="product_count" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="product_brand_id" Type="Int32" />
+    <Property Name="product_category_id" Type="Int32" />
+    <NavigationProperty Name="Brand" Relationship="Self.FK_Mallar_Brand" FromRole="Mallar" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Mallar_Category" FromRole="Mallar" ToRole="Category" />
+    <NavigationProperty Name="Photos" Relationship="Self.FK_Photos_Mallar" FromRole="Mallar" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="MessageWant">
+    <Key>
+      <PropertyRef Name="wantmessage_id" />
+    </Key>
+    <Property Name="wantmessage_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wantmessage_user_id" Type="Int32" />
+    <Property Name="wantmessage_text" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_status_id" Type="Int32" />
+    <Property Name="order_user_id" Type="Int32" />
+    <Property Name="order_product" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="order_adress" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="order_count" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="order_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OrderStatu" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+  </EntityType>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="orderstatus_id" />
+    </Key>
+    <Property Name="orderstatus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderstatus_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="photo_id" />
+    </Key>
+    <Property Name="photo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="photo_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="photo_product_id" Type="Int32" />
+    <Property Name="photo_color_id" Type="Int32" />
+    <Property Name="photo_type_id" Type="Int32" />
+    <NavigationProperty Name="Color" Relationship="Self.FK_Photos_Color" FromRole="Photos" ToRole="Color" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK_Company_Photos" FromRole="Photos" ToRole="Company" />
+    <NavigationProperty Name="Mallar" Relationship="Self.FK_Photos_Mallar" FromRole="Photos" ToRole="Mallar" />
+    <NavigationProperty Name="PhotoType" Relationship="Self.FK_Photos_PhotoType" FromRole="Photos" ToRole="PhotoType" />
+  </EntityType>
+  <EntityType Name="PhotoType">
+    <Key>
+      <PropertyRef Name="photo_type_id" />
+    </Key>
+    <Property Name="photo_type_id" Type="Int32" Nullable="false" />
+    <Property Name="photo_type_name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Photos" Relationship="Self.FK_Photos_PhotoType" FromRole="PhotoType" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="user_fullname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="user_email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_phone" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Mallar_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="brand_id" />
+      </Principal>
+      <Dependent Role="Mallar">
+        <PropertyRef Name="product_brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mallar_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="Mallar">
+        <PropertyRef Name="product_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="color_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_color_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_Photos">
+    <End Role="Photos" Type="Self.Photo" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="photo_id" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="company_photo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_Mallar">
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mallar">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="orderstatus_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="order_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="order_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photos_PhotoType">
+    <End Role="PhotoType" Type="Self.PhotoType" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhotoType">
+        <PropertyRef Name="photo_type_id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="photo_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShoppingNewEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Colors" EntityType="Self.Color" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Mallars" EntityType="Self.Mallar" />
+    <EntitySet Name="MessageWants" EntityType="Self.MessageWant" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+    <EntitySet Name="Photos" EntityType="Self.Photo" />
+    <EntitySet Name="PhotoTypes" EntityType="Self.PhotoType" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Mallar_Brand" Association="Self.FK_Mallar_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Mallar" EntitySet="Mallars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mallar_Category" Association="Self.FK_Mallar_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Mallar" EntitySet="Mallars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_Color" Association="Self.FK_Photos_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_Photos" Association="Self.FK_Company_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_Mallar" Association="Self.FK_Photos_Mallar">
+      <End Role="Mallar" EntitySet="Mallars" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photos_PhotoType" Association="Self.FK_Photos_PhotoType">
+      <End Role="PhotoType" EntitySet="PhotoTypes" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,356 @@
+﻿@model YeniShoppingProject.Viewmodel.MyModel
+@{
+
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+}
+
+
+
+<section id="karusel">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-xs-3 text-right">
+                <h3>Saqqal</h3> <i class="fa fa-dot-circle-o" id="musicbir" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <img src="~/Shop/img/mecunteze.png" id="birdi" style="width: 100%;">
+                <img src="~/Shop/img/bm_knock_out_1024x1024.png" id="ikidi" style="width: 100%;display: none;">
+            </div>
+            <div class="col-md-3 col-xs-3 text-left">
+                <h3>Güc</h3><i class="fa fa-circle-o" id="musiciki" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-xs-3 text-right">
+
+                <h3>Saqqal</h3> <i class="fa fa-circle-o" id="musicuc" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-6 col-xs-6">
+            </div>
+            <div class="col-md-3 col-xs-3 text-left">
+                <h3>Güc</h3> <i class="fa fa-dot-circle-o" id="musicdort" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+<section id="telefondu">
+
+    <div class="w3-content w3-section" style="max-width:500px">
+        <img src="~/Shop/img/mecunteze.png" class="mySlides" style="width: 100%;">
+        <img src="~/Shop/img/bm_knock_out_1024x1024.png" class="mySlides" style="width: 100%;">
+        <img src="~/Shop/img/mecunteze.png" class="mySlides" style="width: 100%;">
+    </div>
+</section>
+
+<section id="mehsullar">
+    <div class="container">
+        <h1 class="text-center">Sağlamlıq</h1>
+        <div class="row">
+
+            @foreach (var item in Model._sekiller)
+            {
+                if (item.photo_type_id == 1)
+                {
+                    using (Html.BeginForm("Sebetler", "Home"))
+                    {
+                        <div class="col-md-3 col-xs-6">
+                            <div class="mehsul">
+                                <p>@item.PhotoType.photo_type_name</p>
+                                <div class="itemphoto text-center">
+                                    <a href="~/Home/BLogMehsul/@item.photo_id">
+                                        <img src="~/Yuklenen/@item.photo_name">
+                                    </a>
+                                    <h2>@item.Mallar.Brand.brand_name</h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star uncheked uncheked"></span>
+                                    <span class="fa fa-star uncheked uncheked"></span>
+                                    <span class="fa fa-star uncheked uncheked"></span>
+                                    <hr>
+                                    <h4>@item.Mallar.product_price ‎₼ </h4>
+                                    <input type="hidden" name="mehsulid" style="display:none;" value="@item.photo_id" />
+                                    @if (Session["id"] != null)
+                                    {
+
+                                        <button type="submit" class="btn btn-info">Səbətə at</button>
+
+                                    }
+                                    else
+                                    {
+                                        <button type="submit"><a href="/Login/Index" id="boxes">Səbətə at</a></button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            }
+
+
+            @*<div class="col-md-3 col-xs-6">
+                    <div class="mehsul">
+                        <p>premium</p>
+                        <div class="itemphoto text-center">
+                            <a href="mehsul.html">
+                                <img src="https://d1rkccsb0jf1bk.cloudfront.net/products/100013048/main/medium/1513484-1495449995-4344.jpg">
+                            </a>
+                            <h2>BOSS</h2>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <hr>
+                            <h4>699 ‎₼ </h4>
+                            <button type="button" class="btn btn-info">Səbətə at</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="mehsul">
+                        <p>premium</p>
+                        <div class="itemphoto text-center">
+                            <a href="mehsul.html">
+                                <img src="https://d1rkccsb0jf1bk.cloudfront.net/products/100013048/main/medium/1513484-1495449995-4344.jpg">
+                            </a>
+                            <h2>BOSS</h2>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <hr>
+                            <h4>699 ‎₼ </h4>
+                            <button type="button" class="btn btn-info">Səbətə at</button>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<section id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <div class="sloqan">
+                    <marquee>
+                        <h2>Hər gün yeni yeni məhsullarla sizinləyik</h2>
+                    </marquee>
+                    @*<ul>
+                            <li><a href=""> Loremdi </a></li>
+                            <li><a href=""> Loremdi </a></li>
+                            <li><a href=""> Loremdi </a></li>
+                            <li><a href=""> Loremdi </a></li>
+                        </ul>*@
+                </div><br>
+                <hr>
+                <div class="row productPartialResult">
+
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+                <div class="yanmenu">
+                    <ul>
+                        @foreach (var item in Model._categories)
+                        {
+                            <li>
+                                <i class="@item.category_icon" id="musicbir" aria-hidden="true"></i>
+                                <h2 class="showclick" style="cursor:pointer" data-id="@item.category_id">@item.category_name</h2><br>
+                            </li>
+                        }
+                        @*<li>
+                                <i class="fa fa-codepen" aria-hidden="true"></i>
+
+                                <h2><a href="">Aksesuar</a></h2><br>
+                            </li>
+                            <li>
+                                <i class="fa fa-motorcycle" aria-hidden="true"></i>
+                                <h2><a href="">Hediyyelik</a></h2><br>
+                            </li>
+                            <li>
+                                <i class="fa fa-reddit" aria-hidden="true"></i>
+                                <h2><a href="">Idman</a></h2><br>
+                            </li>*@
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<section id="vipmehsullar">
+    <div class="container">
+        <h1 class="text-center">Məhsullar</h1>
+        <div class="row">
+            @foreach (var item in Model._sekiller)
+            {
+                if (item.photo_type_id == 2)
+                {
+                    using (Html.BeginForm("Sebetler", "Home"))
+                    {
+                        <div class="col-md-3 col-xs-6">
+                            <div class="mehsulvip">
+                                <p>@item.PhotoType.photo_type_name</p>
+                                <i class="fa fa-cart-plus" id="shopdu" aria-hidden="true"></i>
+                                <i class="fa fa-chevron-circle-down" id="testiqdi" aria-hidden="true"></i>
+                                <div class="itemphoto text-center">
+                                    < <a href="/Home/BLogMehsul/@item.photo_id">
+                                        <img src="~/Yuklenen/@item.photo_name">
+                                    </a>
+                                    <h2>@item.Mallar.Brand.brand_name</h2>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star uncheked"></span>
+                                    <span class="fa fa-star uncheked"></span>
+                                    <span class="fa fa-star uncheked"></span>
+                                    <hr>
+                                    <h4>@item.Mallar.product_price ‎₼ </h4>
+                                    @if (Session["id"] != null)
+                                    {
+
+                                        <button type="submit" class="btn btn-info">Səbətə at</button>
+
+                                    }
+                                    else
+                                    {
+                                        <button type="submit"><a href="/Login/Index" id="boxes">Səbətə at</a></button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            @*<div class="col-md-3 col-xs-6">
+                    <div class="mehsulvip">
+                        <p>VIP</p>
+                        <i class="fa fa-cart-plus" id="shopdu" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-circle-down" id="testiqdi" aria-hidden="true"></i>
+                        <div class="itemphoto text-center">
+                            <a href="mehsulblog.html">
+                                <img src="https://d1rkccsb0jf1bk.cloudfront.net/products/100013048/main/medium/1513484-1495449995-4344.jpg">
+                            </a>
+                            <h2>BOSS</h2>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <hr>
+                            <h4>699 ‎₼ </h4>
+                            <button type="button" class="btn btn-danger">Səbətə at</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="mehsulvip">
+                        <p>VIP</p>
+                        <i class="fa fa-cart-plus" id="shopdu" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-circle-down" id="testiqdi" aria-hidden="true"></i>
+                        <div class="itemphoto text-center">
+                            <a href="mehsulblog.html">
+                                <img src="https://d1rkccsb0jf1bk.cloudfront.net/products/100013048/main/medium/1513484-1495449995-4344.jpg">
+                            </a>
+                            <h2>BOSS</h2>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <hr>
+                            <h4>699 ‎₼ </h4>
+                            <button type="button" class="btn btn-danger">Səbətə at</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="mehsulvip">
+                        <p>Vip</p>
+                        <i class="fa fa-cart-plus" id="shopdu" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-circle-down" id="testiqdi" aria-hidden="true"></i>
+                        <div class="itemphoto text-center">
+                            <a href="mehsulblog.html">
+                                <img src="https://d1rkccsb0jf1bk.cloudfront.net/products/100013048/main/medium/1513484-1495449995-4344.jpg">
+                            </a>
+                            <h2>BOSS</h2>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <span class="fa fa-star uncheked"></span>
+                            <hr>
+                            <h4>699 ‎₼ </h4>
+                            <button type="button" class="btn btn-danger">Səbətə at</button>
+                        </div>
+                    </div>
+                </div>*@
+
+        </div>
+
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<section id="kampanya">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var item in Model._allcompanies)
+            {
+                <div class="col-md-6">
+                    <h2>@item.Photo.Mallar.product_name @item.Photo.Mallar.Brand.brand_name</h2>
+                    <h4>@item.Photo.Mallar.product_info</h4>
+
+                    <button>Sifariş et</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="~/Yuklenen/@item.Photo.photo_name" style="width: 85%;">
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col col-sm">
+                <p class="text-center">Saytın Kampanya bölümündə qoyulan hər bir məhsul müddətli olaraq endirimdədir. Siz də bu bölümü izləmədə qalın, və yeni kampanyalardan ,endirimlərdən yararlanın. Endirimdə olan məhsulu istənilən məkana Pulsuz çatdırılmasını biz tərəfdən təmin edirik </p>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+

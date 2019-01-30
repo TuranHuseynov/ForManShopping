@@ -1,0 +1,160 @@
+#vipmehsullar{
+
+transition: .7s;
+		h4{
+			    position: relative;
+    bottom: 6px;
+    font-size: 31px;
+    text-shadow: 1px 1px 59px snow;
+		}
+		h2{
+			color: snow;
+		}
+	.row{
+		margin-bottom: 30px;
+	}
+
+		h1{
+		 margin-bottom: 26px;
+    transition: .7s linear;
+    letter-spacing: 4px;
+    font-weight: bold;
+    	}
+	h1:hover{
+		    color: #106a95;
+	}
+
+	.mehsulvip {
+        position: relative;
+    padding: 1px 10px;
+            background: linear-gradient(180deg, #201616, 75%, #245ea4 160%);
+    border: 2px solid #ccc;
+    border-bottom-left-radius: 11px;
+      transition: all 2s linear;
+          margin-bottom: 17px;
+	}	
+	.mehsulvip:hover{
+
+        background: linear-gradient(180deg, #121d24, 42%, #16293d 103%);
+	}
+	button{
+		     font-size: 19px;
+    padding: 6px 23px;
+    margin-bottom: 15px;
+	}
+	.mehsulvip:hover h4{
+		color:snow;
+	}
+	.mehsulvip p{
+	padding: 1px 6px;
+    background: #0c4b56;
+    width: 103px;
+    border-bottom-right-radius: 77px;
+    color: snow;
+    position: relative;
+    right: 10px;
+    font-size: 18px;
+    top: -1px;
+    margin-bottom: 20px;
+    transition: all .6s linear;
+	}
+	.mehsulvip:hover p{
+		width: 139px;
+	}
+	.itemphotovip {
+		overflow: hidden;
+	}
+	.mehsulvip img{
+			
+						width: 100%;
+						filter:grayscale(96%);
+						transition:1s;
+						&:hover{
+							filter:grayscale(0);
+							transform:scale(1.1);}
+		}
+
+		.fa-star{
+    		font-size: 20px;
+		}
+
+		.mehsulvip i{
+			    font-size: 24px;
+			    position: absolute;
+			    left: 222px;
+			    top: 5px;
+			    color: #e4dfde;
+			    display: none;
+			        transition: all 2s linear;
+
+		}
+		.mehsulvip:hover i{
+
+			display: block;
+		}
+		#testiqdi{
+			display: none;
+		}
+
+	.checked {
+	    color: #bfb71f;
+		}
+
+
+	.itemphotovip {
+		    position: relative;
+    padding: 4px;
+    border: 4px solid #ccc;
+    border-radius: 10px;
+	}
+	.itemphotovip  h4{
+		      position: relative;
+    bottom: 6px;
+    font-size: 31px;
+    text-shadow: 1px 1px 59px snow;
+	}
+	
+
+	
+}
+
+
+
+@media (max-width: 375px){
+
+ #vipmehsullar .itemphoto h4{
+    font-size: 21px;
+	}
+
+	#vipmehsullar .uncheked{
+		 font-size: 15px;
+	}
+	#vipmehsullar .checked {
+    color: darkred;
+    font-size: 15px;}
+
+#vipmehsullar .mehsulvip p{
+	    padding: 1px 6px;
+    background: #bfb71f;
+    width: 96px;
+    border-bottom-right-radius: 77px;
+    color: snow;
+    position: relative;
+    right: 10px;
+    font-size: 14px;
+    top: -1px;
+    margin-bottom: 20px;
+    transition: all .6s linear;
+}
+#vipmehsullar .mehsulvip:hover p{
+		width: 120px;
+	}
+
+	#vipmehsullar button{
+		    font-size: 13px;
+    padding: 4px 19px;
+	}
+
+
+
+}

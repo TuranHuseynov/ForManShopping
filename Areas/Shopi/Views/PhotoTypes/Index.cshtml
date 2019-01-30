@@ -1,0 +1,34 @@
+﻿@model IEnumerable<YeniShoppingProject.Models.PhotoType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Shopi/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.photo_type_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo_type_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.photo_type_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.photo_type_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.photo_type_id })
+        </td>
+    </tr>
+}
+
+</table>

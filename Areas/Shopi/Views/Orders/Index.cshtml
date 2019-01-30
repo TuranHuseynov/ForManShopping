@@ -1,0 +1,64 @@
+﻿@model IEnumerable<YeniShoppingProject.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Shopi/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.order_product)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatu.orderstatus_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.user_fullname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_product)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatu.orderstatus_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.user_fullname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_id })
+        </td>
+    </tr>
+}
+
+</table>

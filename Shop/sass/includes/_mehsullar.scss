@@ -1,0 +1,158 @@
+#mehsullar{
+// 	@font-face {
+//     font-family: myFirstFont;
+//     src: url(ClearSans-Bold.otf);
+// }
+
+font-family: myFirstFont;
+	.row{
+		margin-bottom: 30px;
+	}
+	h1{
+		 margin-bottom: 26px;
+    font-family: myFirstFont;
+    transition: .7s linear;
+    letter-spacing: 4px;
+    font-weight: bold;
+    	}
+	h1:hover{
+		    color: #106a95;
+	}
+
+
+
+
+	.mehsul{
+        position: relative;
+    padding: 1px 10px;
+    background: linear-gradient(180deg, #1e4d6c, 42%, #cecdcd 103%);
+    border: 2px solid #ccc;
+    border-bottom-left-radius: 11px;
+      transition: all 2s linear;
+          margin-bottom: 19px;
+	}	
+	.mehsul p{
+	padding: 1px 6px;
+    background: #a61111;
+    width: 103px;
+    border-bottom-right-radius: 77px;
+    color: snow;
+    position: relative;
+    right: 10px;
+    font-family: myFirstFont;
+    font-size: 18px;
+    top: 0px;
+    margin-bottom: 20px;
+    transition: all .6s linear;
+	}
+	.mehsul:hover p{
+		width: 139px;
+	}
+	.mehsul:hover{
+		          background: linear-gradient(180deg, #173447, 42%, #cecdcd 103%);
+	}
+	.itemphoto{
+		overflow: hidden;
+	}
+	.mehsul img{
+			
+						width: 100%;
+						filter:grayscale(96%);
+						transition:1s;
+						&:hover{
+							filter:grayscale(0);
+							transform:scale(1.1);}
+		}
+
+		.fa-star{
+    		font-size: 20px;
+		}
+
+		.mehsul i{
+			    font-size: 24px;
+			    position: absolute;
+			    left: 222px;
+			    top: 5px;
+			    color: #e4dfde;
+			    display: none;
+			        transition: all 2s linear;
+
+		}
+		.mehsul:hover i{
+
+			display: block;
+		}
+		#testiqdi{
+			display: none;
+		}
+
+	.checked {
+	    color: darkred;
+		}
+
+
+	.itemphoto{
+		    position: relative;
+    padding: 4px;
+    border: 4px solid #ccc;
+    border-radius: 10px;
+	}
+	.itemphoto h4{
+		      position: relative;
+    bottom: 6px;
+    font-size: 31px;
+    text-shadow: 1px 1px 59px snow;
+    font-family: myFirstFont;
+	}
+	
+
+	button{
+		    font-size: 19px;
+    padding: 6px 28px;
+
+	}
+
+	
+}
+
+@media (max-width: 375px){
+
+ #mehsullar .itemphoto h4{
+    font-size: 21px;
+	}
+	#mehsullar .uncheked{
+		 font-size: 15px;
+	}
+	#mehsullar .checked {
+    color: darkred;
+    font-size: 15px;}
+
+#mehsullar .mehsul p{
+	    padding: 1px 6px;
+    background: #a61111;
+    width: 96px;
+    border-bottom-right-radius: 77px;
+    color: snow;
+    position: relative;
+    right: 10px;
+    font-family: myFirstFont;
+    font-size: 14px;
+    top: 0px;
+    margin-bottom: 20px;
+    transition: all .6s linear;
+}
+#mehsullar .mehsul:hover p{
+		width: 120px;
+	}
+	#mehsullar h1{
+		    font-size: 24px;
+		    margin-bottom: 17px;
+	}
+	#mehsullar button{
+		    font-size: 13px;
+    padding: 4px 19px;
+	}
+
+
+
+}

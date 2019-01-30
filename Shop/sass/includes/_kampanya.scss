@@ -1,0 +1,116 @@
+#banner {
+	    background: #1a467b;
+    padding: 38px;
+
+
+
+	.sloqan{
+		background: url(https://i.pinimg.com/originals/0e/14/62/0e1462c74653dacf417a0a9f94dc1cef.jpg) center center no-repeat;
+		background-size: cover;
+		box-sizing:border-box;
+		    border: none;
+    border-radius: 6px;
+		color: snow;
+
+	}
+	.sloqan ul li{
+		    float: left;
+    list-style: none;
+    font-size: 20px;
+    margin-right: 20px;
+    padding: 10px;
+	}
+	.sloqan ul li a{
+		color: snow;
+	}
+
+	.itemkamp{
+		border: 1px solid #ccc;
+    padding: 1px;
+    box-shadow: -11px 17px 33px #1a1919;
+    background: #e2e1e1;
+    text-align: center;
+    border-radius: 4px;
+	}
+
+	.itemkamp .hovermenu{
+	    position: absolute;
+    top: 1px;
+    width: 87%;
+    height: 311px;
+    overflow: hidden;
+    text-align: center;
+    background: #15365ec2;
+    opacity: 0;
+    color: snow;
+    transition: .8s;
+	}
+	 .hovermenu .itemhovermenu{
+		  transform: translate(2%,121%);
+		    text-align: center;
+
+	}
+	.itemhovermenu p {
+		    font-size: 26px;
+	}
+
+	.itemkamp:hover .hovermenu{
+		opacity: 1;
+	}
+
+	.yanmenu ul{
+		    background: #071d39;
+    color: snow;
+    list-style: none;
+    border-radius: 9px;
+    position: relative;
+    box-shadow: -1px 7px 33px #000000;
+    top: 65px;
+    transition: .9s;
+	}
+	.yanmenu ul:hover{
+		  background: #1a467b;
+	}
+	.yanmenu ul li{
+		    padding: 8px;
+    text-align: center;
+	}
+	.yanmenu ul li a{
+		color: snow;
+	}
+	.yanmenu i{
+		font-size: 46px;
+        padding: 15px;
+    float: left;
+	}
+	
+
+}
+
+@media (max-width:425px) {
+	#banner .sloqan h2{
+		font-size: 17px;
+	}
+	#banner .itemkamp h2 {
+		font-size: 15px;
+	}
+	#banner .yanmenu ul{
+		display: none;
+	}
+
+	#banner .sloqan ul {
+	display: none;
+	}
+	#banner .itemkamp .hovermenu{
+		    width: 66%;
+    		height: 133px;
+	}
+	#banner .hovermenu .itemhovermenu{
+		    transform: translate(0%, 82%);
+	}
+
+	#banner .hovermenu .itemhovermenu p{
+		font-size: 9px;
+	}
+
+}

@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopNew</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/Shop/css/style.css">
+</head>
+<body>
+
+
+
+    <section id="header">
+        <nav>
+            <div class="xususi">
+                @*<a href="/Home/Anasehife"><i class="fa fa-home" aria-hidden="true"></i></a>*@
+            </div>
+            <div class="toggle">
+                <i class="fa fa-bars menu" aria-hidden="true"></i>
+            </div>
+            <ul class="active">
+                <li><a href="/Home/Index">Əsas səhifə</a></li>
+                <li><a href="/Home/Haqqımızda">Haqqımızda</a></li>
+                <li><a href="/Home/Index">Sağlamlıq</a></li>
+                <li><a href="/Home/Index">KİŞİ ÜÇÜN</a></li>
+                <li><a href="">Kampayalar</a></li>
+                <li><a href="/Home/IstekMesaj">İstəklər</a> </li>
+                <li><a href="/Login/Index">Giriş</a></li>
+
+            </ul>
+            <div class="profile">
+                <a href="/Login/Index" style="    color: #212121;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    padding: 5px 24px;
+    border-radius: 12px;
+    box-shadow: 1px 0px 20px snow;
+    background: snow;
+    text-decoration:none;">Giriş</a>
+
+            </div>
+
+        </nav>
+
+    </section>
+    <div class="clearfix"></div>
+    <hr>
+    @*<p style="float:right;margin-right: 40px;">burda her sey kisi ucundur</p>*@
+    <div class="clearfix"></div>
+    <div class="icon text-center">
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+    <div class="clearfix"></div>
+    @RenderBody()
+
+
+
+    <div class="clearfix"></div>
+
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Haqqımızda</h2>
+                    <h4>Sayt Kişi üçün lazım olacaq hər bir bir vacib əşyaların onlayn satışını  həyata keçirmək üçün yaradılıb. Burada sizə lazım olacaq hər bir şeyi düşünərək ,həmin şeyləri yerləşdirdik. Saytda hətta sizin istəklər üçün bölüm də yerləşdirdik ...</h4>
+                    <a href="/Home/Haqqimizda">Ətraflı &rsaquo;</a>
+                </div>
+                <div class="col-md-6">
+                    <h2>Sosyalda Biz</h2>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/kisiucun/">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/Ki%C5%9Fi-%C3%9C%C3%A7%C3%BCn-568544160226281/?modal=admin_todo_tour">
+                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h2>Adress</h2>
+                    <p>Telefon :  (012) 437 80 00</p>
+                    <p>Gmail : turaneh@code.edu.az</p>
+                    <input type="text" name="" placeholder="bizə mesajınız ...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <script src="~/Shop/js/script.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.menu').click(function () {
+                $('ul').toggleClass('active');
+            })
+        });
+
+
+        $('#sifar').click(function () {
+
+
+            $('#sifar').css('display', 'none');
+            $('#gizliform').css('display', 'block');
+
+
+        });
+
+
+        $('#musicbir').click(function () {
+
+
+            $('#birdi').css('display', 'none');
+            $('#ikidi').css('display', 'block');
+
+
+        });
+
+        $('#musiciki').click(function () {
+
+
+            $('#birdi').css('display', 'block');
+            $('#ikidi').css('display', 'none');
+
+
+        });
+
+
+        $('#musicuc').click(function () {
+
+
+            $('#birdi').css('display', 'none');
+            $('#ikidi').css('display', 'block');
+
+
+        });
+
+        $('#musicdort').click(function () {
+
+
+            $('#birdi').css('display', 'block');
+            $('#ikidi').css('display', 'none');
+
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+#mehsulblog {
+
+	@font-face {
+    font-family: mySecondtFont;
+    src: url(/fonts/ClearSans-Regular.otf);
+}
+		button{
+			font-size: 19px;
+   			 padding: 6px 28px;
+   			 font-family: mySecondtFont;
+
+		}
+
+		.reng button:nth-child(1){
+			    background: #d9d3d3;
+    			border: none;
+		}
+		.reng button:nth-child(2){
+			    background: black;
+    			border: none;
+		}
+		.reng button:nth-child(3){
+			    background: #061f3d;
+    			border: none;
+		}
+
+		.butonlar{
+			margin: 20px auto;
+		}
+
+		input{
+			    width: 25%;
+    border: 2px solid;
+    font-size: 23px;
+    border-radius: 6px;
+		}
+}

@@ -1,0 +1,118 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopNew</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/Shop/css/style.css">
+</head>
+
+<body>
+    <style>
+        body {
+            background: url(../Shop/img/manblack.jpg) center center no-repeat;
+            background-size: cover;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        #giris {
+            margin-top: 71px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px 18px;
+            font-size: 24px;
+            background: no-repeat;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-shadow: 2px 3px 44px snow;
+            margin-bottom: 46px;
+            color: snow;
+        }
+
+        h1 {
+            color: snow;
+        }
+
+        button {
+            padding: 7px 33px;
+            font-size: 22px;
+            background: none;
+            color: snow;
+            float: right;
+            border-radius: 14px;
+            border: 1px solid snow;
+            transition: .8s;
+            margin-bottom: 20px;
+        }
+
+            button:hover {
+                background-color: snow;
+                color: black;
+            }
+    </style>
+
+
+
+    <section id="giris">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-center">Giriş</h1>
+                    <form method="post" action="~/Home/Qeydiyyat" name="frmbir">
+                        <input type="text" class="text-center" placeholder="Ad,Soyadınız *" name="user_ad_soyad" /><br />
+                        <input type="email" class="text-center" placeholder="Email *" name="user_email" /><br />
+                        <input type="tel" class="text-center" placeholder="Telefon *" name="user_telefon" /><br />
+                        <input type="password" class="text-center" placeholder="Şifrə *" name="user_password" /><br />
+
+                        <button type="submit" onclick="return IsEmpty()">Qeydiyyat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        function IsEmpty() {
+            if (document.forms['frmbir'].user_ad_soyad.value === "" || document.forms['frmbir'].user_email.value === "" || document.forms['frmbir'].user_telefon.value === "" || document.forms['frmbir'].user_password.value === "" ) {
+                swal("Bütün bölmələri doldurun");
+                return false;
+            } else {
+                swal("Uğurla qeydiyyatdan keçdiniz");
+                return true;
+            };
+
+        };
+
+
+
+    </script>
+
+
+    <script src="~/Shop/js/javas.js"></script>
+
+</body>
+</html>
